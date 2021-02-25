@@ -30,12 +30,13 @@ function App() {
     if (dataVal === "sortName") {
       // console.log(users)
       var tempArr = [];
-      tempArr = users;
+      tempArr = [...users];
       console.log(tempArr);
       tempArr = tempArr.sort((a, b) => (a.fullname > b.fullname) ? 1 : -1);
       console.log(tempArr);
       setUsers(tempArr);
     }
+    console.log(users)
   }
 
   return (
