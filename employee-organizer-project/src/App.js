@@ -7,10 +7,7 @@ import Table from "./components/Table";
 function App() {
 
   const [users, setUsers] = useState([]);
-  // const [user, setUser] = useState({});
-  // const [userIndex, setUserIndex] = useState(0);
 
-  // When the component mounts, a call will be made to get random users.
   useEffect(() => {
     loadEmployees();
   }, []);
@@ -26,21 +23,31 @@ function App() {
   }
 
   // for sort by button
-  // function handleBtnClick(event) {
-  //   if (btnName === "sortName") {
-
-  //   }
-  // }
+  function handleBtnClick(event) {
+    event.preventDefault();
+    const dataVal = event.target.getAttribute("data-value");
+    
+    if (dataVal === "sortName") {
+      // console.log(users)
+      var tempArr = [];
+      tempArr = users;
+      console.log(tempArr);
+      tempArr = tempArr.sort((a, b) => (a.fullname > b.fullname) ? 1 : -1);
+      console.log(tempArr);
+      setUsers(tempArr);
+    }
+  }
 
   return (
+    // console.log("render")
     <div>
       <Jumbotron />
       {/* <SearchForm /> */}
-      <table class="table table-striped">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">Picture</th>
-            <th scope="col">Name</th>
+            <th scope="col"><button onClick={handleBtnClick} data-value="sortName">Name</button></th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">DOB</th>
@@ -48,7 +55,7 @@ function App() {
         </thead>
         {users.map(user => {
           return <Table
-            fullName={user.firstname + " " + user.lastname}
+            fullname={user.fullname}
             email={user.email}
             image={user.image}
             phone={user.phone}

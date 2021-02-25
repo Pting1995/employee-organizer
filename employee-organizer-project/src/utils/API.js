@@ -9,6 +9,7 @@ export default {
           return {
             firstname: user.name.first,
             lastname: user.name.last,
+            fullname: user.name.first + " " + user.name.last,
             email: user.email,
             image: user.picture.large,
             phone: user.cell,
