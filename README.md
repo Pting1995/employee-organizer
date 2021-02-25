@@ -25,7 +25,7 @@
     function handleButtonClick - when clicked sort by alphabetical or w/e
 
     function search (when user types in a name the list will be narrowed down and the user that has something related to name will show)
-
+TAYLOR SWIFT TAYLOR SWIFT TAYLOR SWIFT TAYLOR SWIFT TAYLOR SWIFT :D
         const [searchState, setSearchState] = useState({
         search: "",
         user: user
@@ -49,7 +49,7 @@ ________________________________________________________________
         jumbothing (hardcoded title)
         searchbar (onChange = function search)
         table <table header / table body>
-        table header (IMG, NAME, PHONE, EMAIL, DOB)
+        table header (IMG, NAME, PHONE, EMAIL, DOB) add button to whatever u wana sort
         table body (user.IMG, user.NAME, user.PHONE, user.EMAIL, user.DOB)
 
     pages
