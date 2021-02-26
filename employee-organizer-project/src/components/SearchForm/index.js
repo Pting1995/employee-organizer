@@ -1,11 +1,15 @@
 import React from "react";
 
-function searchForm() {
+function searchForm(props) {
     return (
         <form>
             <div className="form-group">
-                <label for="searchName">Employee Search</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Employee Name"></input>
+                <label htmlFor="searchName">Employee Search</label>
+                <input type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Employee Name" onChange={(event) => {
+                    event.preventDefault();
+                    var search = event.target.value;
+                    props.handleSearchQueryChange(event)
+                }}></input>
             </div>
         </form>
     )

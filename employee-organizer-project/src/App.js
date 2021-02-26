@@ -7,6 +7,7 @@ import Table from "./components/Table";
 function App() {
 
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     loadEmployees();
@@ -19,7 +20,7 @@ function App() {
           setUsers(users);
         });
       })
-      .catch(err => console.log(err));
+      .catch(err =>  console.log(err));
   }
 
   // for sort by button
@@ -35,12 +36,25 @@ function App() {
     }
   }
 
+  function cb (user) {
+    var fullName = user.fullname.toLowerCase()
+      if (fullName.includes(search.toLowerCase())) {
+        return true;
+        // }
+      }
+      else {
+        return false;
+      }
+  }
+
+   function handleSearchQueryChange(event) {
+    setSearch(event.target.value)
+   }
   return (
-    // console.log("render")
     <div>
       <Jumbotron />
       <div className="container">
-        <SearchForm />
+        <SearchForm handleSearchQueryChange={handleSearchQueryChange} />
         <table className="table table-striped">
           <thead>
             <tr>
@@ -51,7 +65,8 @@ function App() {
               <th scope="col">DOB</th>
             </tr>
           </thead>
-          {users.map(user => {
+          {console.log(users),
+          users.filter(cb).map(user => {
             return <Table
               fullname={user.fullname}
               email={user.email}
