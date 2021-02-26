@@ -20,7 +20,7 @@ function App() {
           setUsers(users);
         });
       })
-      .catch(err =>  console.log(err));
+      .catch(err => console.log(err));
   }
 
   // for sort by button
@@ -36,20 +36,19 @@ function App() {
     }
   }
 
-  function cb (user) {
+  function cb(user) {
     var fullName = user.fullname.toLowerCase()
-      if (fullName.includes(search.toLowerCase())) {
-        return true;
-        // }
-      }
-      else {
-        return false;
-      }
+    if (fullName.includes(search.toLowerCase())) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
-   function handleSearchQueryChange(event) {
+  function handleSearchQueryChange(event) {
     setSearch(event.target.value)
-   }
+  }
   return (
     <div>
       <Jumbotron />
@@ -66,15 +65,15 @@ function App() {
             </tr>
           </thead>
           {console.log(users),
-          users.filter(cb).map(user => {
-            return <Table
-              fullname={user.fullname}
-              email={user.email}
-              image={user.image}
-              phone={user.phone}
-              dob={user.dob}
-            />
-          })}
+            users.filter(cb).map(user => {
+              return <Table
+                fullname={user.fullname}
+                email={user.email}
+                image={user.image}
+                phone={user.phone}
+                dob={user.dob}
+              />
+            })}
         </table>
       </div>
     </div>

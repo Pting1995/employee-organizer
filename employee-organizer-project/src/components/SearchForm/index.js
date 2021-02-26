@@ -7,7 +7,6 @@ function searchForm(props) {
                 <label htmlFor="searchName">Employee Search</label>
                 <input type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Employee Name" onChange={(event) => {
                     event.preventDefault();
-                    var search = event.target.value;
                     props.handleSearchQueryChange(event)
                 }}></input>
             </div>
