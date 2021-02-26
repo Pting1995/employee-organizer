@@ -27,11 +27,22 @@ function App() {
   function handleBtnClick(event) {
     event.preventDefault();
     const dataVal = event.target.getAttribute("data-value");
-
+    var tempArr = [];
     if (dataVal === "sortName") {
-      var tempArr = [];
       tempArr = [...users];
       tempArr = tempArr.sort((a, b) => (a.fullname > b.fullname) ? 1 : -1);
+      setUsers(tempArr);
+    } else if (dataVal === "sortPhone") {
+      tempArr = [...users];
+      tempArr = tempArr.sort((a, b) => (a.phone > b.phone) ? 1 : -1);
+      setUsers(tempArr);
+    } else if (dataVal === "sortEmail") {
+      tempArr = [...users];
+      tempArr = tempArr.sort((a, b) => (a.email > b.email) ? 1 : -1);
+      setUsers(tempArr);
+    } else if (dataVal === "sortDOB") {
+      tempArr = [...users];
+      tempArr = tempArr.sort((a, b) => (a.dob > b.dob) ? 1 : -1);
       setUsers(tempArr);
     }
   }
@@ -49,6 +60,7 @@ function App() {
   function handleSearchQueryChange(event) {
     setSearch(event.target.value)
   }
+
   return (
     <div>
       <Jumbotron />
@@ -57,11 +69,11 @@ function App() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Picture</th>
+              <th scope="col"><button className="btn btn-info">Picture</button></th>
               <th scope="col"><button className="btn btn-info" onClick={handleBtnClick} data-value="sortName">Name</button></th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">DOB</th>
+              <th scope="col"><button className="btn btn-info" onClick={handleBtnClick} data-value="sortPhone">Phone</button></th>
+              <th scope="col"><button className="btn btn-info" onClick={handleBtnClick} data-value="sortEmail">Email</button></th>
+              <th scope="col"><button className="btn btn-info" onClick={handleBtnClick} data-value="sortDOB">DOB</button></th>
             </tr>
           </thead>
           {console.log(users),
