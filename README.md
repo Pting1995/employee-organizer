@@ -5,7 +5,7 @@ This app helps you keep your employees organized! Right now it uses an API to ge
 
 ## Preview of Working Site
 
-![Image](./public/images/employee-organizer-1400x700-demo.gif)
+![Image](.employee-organizer-project/public/images/employee-organizer-1400x700-demo.gif)
 
 ## Deployed Link
 
