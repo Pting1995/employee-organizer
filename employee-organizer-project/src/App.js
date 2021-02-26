@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "./utils/API";
 import Jumbotron from "./components/Jumbotron";
-// import SearchForm from "./components/SearchForm";
+import SearchForm from "./components/SearchForm";
 import Table from "./components/Table";
 
 function App() {
@@ -26,46 +26,46 @@ function App() {
   function handleBtnClick(event) {
     event.preventDefault();
     const dataVal = event.target.getAttribute("data-value");
-    
+
     if (dataVal === "sortName") {
-      // console.log(users)
       var tempArr = [];
       tempArr = [...users];
-      console.log(tempArr);
       tempArr = tempArr.sort((a, b) => (a.fullname > b.fullname) ? 1 : -1);
-      console.log(tempArr);
       setUsers(tempArr);
     }
-    console.log(users)
   }
 
   return (
     // console.log("render")
     <div>
       <Jumbotron />
-      {/* <SearchForm /> */}
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Picture</th>
-            <th scope="col"><button onClick={handleBtnClick} data-value="sortName">Name</button></th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
-            <th scope="col">DOB</th>
-          </tr>
-        </thead>
-        {users.map(user => {
-          return <Table
-            fullname={user.fullname}
-            email={user.email}
-            image={user.image}
-            phone={user.phone}
-            dob={user.dob}
-          />
-        })}
+      <div className="container">
+        <SearchForm />
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Picture</th>
+              <th scope="col"><button className="btn btn-info" onClick={handleBtnClick} data-value="sortName">Name</button></th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">DOB</th>
+            </tr>
+          </thead>
+          {users.map(user => {
+            return <Table
+              fullname={user.fullname}
+              email={user.email}
+              image={user.image}
+              phone={user.phone}
+              dob={user.dob}
+            />
+          })}
         </table>
-
+      </div>
     </div>
+
+
+
   );
 }
 
